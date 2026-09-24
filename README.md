@@ -1,19 +1,31 @@
 # NAVRANG
 
-A large-audience Navratri game designed for an office event.
+A static Navratri game concept built for GitHub Pages.
 
-## Experiences
+## Current phase
 
-- `/` event landing page
-- `/play/` mobile player controller
-- `/stage/` projector and big-screen experience
-- `/host/` presenter control room
+This repository is intentionally **frontend only**.
 
-Default game code: `NAV26`
+There is no Supabase, database, authentication or hosted multiplayer dependency in the current build. The purpose of this version is to develop and review the visual identity, animations, round concepts, player experience, stage experience and presenter flow before choosing production infrastructure.
 
-## Game format
+## Screens
 
-NAVRANG has nine themed rounds:
+- `/` NAVRANG landing experience
+- `/play/` mobile player view
+- `/stage/` projector view
+- `/host/` presenter controls
+
+Default visual game code: `NAV26`
+
+Host preview PIN: `NAVRANG26`
+
+## Local visual sync
+
+For demonstrations, the host, stage and player pages use browser-local state. If the pages are opened in tabs in the same browser and on the same GitHub Pages origin, host actions update the other tabs without a backend.
+
+This is a visual prototype only. Separate phones do not share state yet.
+
+## Nine rounds
 
 1. Shubh Aarambh
 2. Rang Pehchano
@@ -25,49 +37,8 @@ NAVRANG has nine themed rounds:
 8. Team Raas
 9. Maha Aarti
 
-Players are never eliminated. Scores combine accuracy, response speed and streak bonuses. Five colour teams compete alongside the individual leaderboard.
+The demo includes staged player counts, live-looking answer distributions, individual and team leaderboards, colour-memory sequences, generated drum rhythms, countdowns, animations and finale effects.
 
-## Large audience architecture
+## Publishing
 
-The phone clients deliberately do not hold a permanent Realtime WebSocket connection. They use short state polls and REST answer submissions through a Supabase Edge Function. This avoids making the audience size depend on the project's concurrent Realtime connection quota.
-
-The database uses isolated `nav_*` tables with RLS enabled. The public frontend cannot query those tables directly. Player and host traffic goes through `navquiz-api`, while atomic scoring is handled by a database function restricted to the service role.
-
-## Host
-
-Open `/host/?code=NAV26`.
-
-The presenter can:
-
-- start the game
-- open each question
-- reveal answers
-- show round results
-- show the live leaderboard
-- move to the next round
-- finish the event
-- reset all players and scores
-
-Keyboard shortcuts:
-
-- Space: next question
-- R: reveal
-- B: leaderboard
-
-## Stage
-
-Open `/stage/?code=NAV26` on the projector and select **Start Stage** once. This unlocks fullscreen and browser audio for the Garba Beats round.
-
-## Backend
-
-Supabase project: `ganesha-idol-voting-2026`
-
-Edge function source is versioned in:
-
-`supabase/functions/navquiz-api/index.ts`
-
-The NAVRANG tables are prefixed with `nav_` so they remain separate from the existing Ganesha voting application.
-
-## GitHub Pages
-
-Publish from `main` and the repository root.
+GitHub Pages can publish directly from `main` and the repository root.
