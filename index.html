@@ -1,62 +1,46 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#10051f"><title>The Navratri Hot Seat</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#100622">
+  <title>NAVRANG</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Yatra+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/navrang.css">
 </head>
-<body>
-<video id="bgVideo" class="bgVideo" autoplay muted loop playsinline poster="assets/video-poster.svg"><source src="assets/navratri-intro.mp4" type="video/mp4"></video>
-<div class="amb"><i></i><i></i><i></i></div><canvas id="fx"></canvas>
-<header><button id="home" class="brand">✦ <span>THE NAVRATRI HOT SEAT</span></button><div><button id="sound" class="round">♪</button><button id="full" class="round">⛶</button></div></header>
+<body class="home-page">
+  <div class="grain"></div>
+  <div class="rangoli-bg"></div>
+  <main class="home-shell">
+    <section class="home-copy">
+      <div class="festive-mark" aria-hidden="true"><span></span><span></span><span></span></div>
+      <p class="overline">OFFICE NAVRATRI CELEBRATION</p>
+      <h1>NAVRANG</h1>
+      <p class="home-tagline">Nine colours. Nine rounds. One celebration.</p>
+      <a class="btn btn-primary btn-large" href="./play/?code=NAV26">JOIN THE CELEBRATION <span>→</span></a>
+      <p class="home-note">Bring your phone. Pick your colour. Play together.</p>
+    </section>
 
-<main>
-<section id="landing" class="screen active">
-  <div class="hero">
-    <div class="copy"><p class="eyebrow">OFFICE NAVRATRI SPECIAL</p><h1>THE NAVRATRI<br><em>HOT SEAT</em></h1><p class="sub">9 nights. 15 questions. One champion.</p>
-      <div class="actions"><button id="enter" class="primary">ENTER THE HOT SEAT <b>→</b></button><button class="ghost boardBtn">LEADERBOARD</button></div>
-      <div class="stats"><span><b>15</b> QUESTIONS</span><span><b>4</b> LIFELINES</span><span><b>1M</b> TOP SCORE</span></div>
-    </div>
-    <div class="emblem"><div><small>नवरात्रि</small><b>HOT<br>SEAT</b><span>2026</span></div></div>
-  </div><div class="ticker">GARBA • INDIA • MUSIC • SPORT • FOOD • WORLD • BOLLYWOOD • BRAIN TEASERS • NAVRATRI • GARBA • INDIA • MUSIC • SPORT •</div>
-</section>
+    <section class="home-orbit" aria-hidden="true">
+      <div class="mandala mandala-xl">
+        <i style="--n:0;--c:#ff5b54"></i><i style="--n:1;--c:#ff9f43"></i><i style="--n:2;--c:#fee440"></i>
+        <i style="--n:3;--c:#37d67a"></i><i style="--n:4;--c:#00c2a8"></i><i style="--n:5;--c:#00bbf9"></i>
+        <i style="--n:6;--c:#6c63ff"></i><i style="--n:7;--c:#9b5de5"></i><i style="--n:8;--c:#f15bb5"></i>
+        <div class="mandala-core"><small>નવરાત્રી</small><b>9</b><span>ROUNDS</span></div>
+      </div>
+    </section>
 
-<section id="setup" class="screen center"><div class="panel setup">
-  <p class="eyebrow">WELCOME TO THE STAGE</p><h2>Who is taking the hot seat?</h2><p class="muted">Enter the contestant name. Everything else is ready.</p>
-  <label>CONTESTANT<input id="name" maxlength="28" placeholder="Enter name" autocomplete="off"></label>
-  <div class="rules"><span><b>1</b>Choose</span><span><b>2</b>Lock it in</span><span><b>3</b>Climb the ladder</span></div>
-  <div class="actions split"><button class="ghost" data-go="landing">BACK</button><button id="start" class="primary">START THE SHOW <b>→</b></button></div>
-</div></section>
-
-<section id="intro" class="screen center"><div class="intro">
-  <div class="rings"><i></i><i></i><i></i></div><div class="spark">✦</div><p class="eyebrow">TONIGHT'S CONTESTANT</p><h2 id="introName">PLAYER</h2><strong id="count">3</strong><button id="skip" class="skip">SKIP INTRO</button>
-</div></section>
-
-<section id="game" class="screen">
-<div class="game">
-  <div class="play">
-    <div class="status"><div><small id="qno">QUESTION 1</small><b id="cat">NAVRATRI</b></div><div class="timer"><svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="18"></circle><circle id="ring" cx="22" cy="22" r="18"></circle></svg><b id="time">45</b></div><div class="score"><small>CURRENT</small><b id="score">0</b></div></div>
-    <div class="stage"><div class="qcard"><small>FOR <b id="value">100</b> POINTS</small><h2 id="question"></h2></div><div id="answers" class="answers"></div>
-      <div class="lockrow"><span id="prompt">Choose A, B, C or D</span><button id="lock" disabled>LOCK ANSWER</button></div>
-      <p id="explain" class="explain"></p>
-    </div>
-    <div class="lifelines"><button data-life="fifty"><b>50:50</b><span>FIFTY FIFTY</span></button><button data-life="audience"><b>▥</b><span>ASK THE OFFICE</span></button><button data-life="friend"><b>☎</b><span>ASK A COLLEAGUE</span></button><button data-life="switch"><b>⇄</b><span>SWITCH QUESTION</span></button></div>
-  </div>
-  <aside><div class="asideTitle"><span>THE LADDER</span><b id="player">PLAYER</b></div><ol id="ladder"></ol><small>Press H for host controls</small></aside>
-</div>
-</section>
-
-<section id="result" class="screen center"><div class="result">
-  <video id="victory" muted loop playsinline><source src="assets/navratri-victory.mp4" type="video/mp4"></video><div class="resultContent"><div class="spark">✦</div><p id="rk" class="eyebrow">WHAT A RUN</p><h2 id="rn">PLAYER</h2><p id="rc" class="muted">You leave the Hot Seat with</p><strong id="rs">0</strong><small>POINTS</small><div class="actions"><button class="ghost boardBtn">LEADERBOARD</button><button id="again" class="primary">NEW CONTESTANT <b>→</b></button></div></div>
-</div></section>
-</main>
-
-<div id="audienceModal" class="modal"><div class="modalCard"><button class="x">×</button><p class="eyebrow">ASK THE OFFICE</p><h2>The room has voted</h2><div id="bars" class="bars"></div></div></div>
-<div id="friendModal" class="modal"><div class="modalCard"><button class="x">×</button><div class="phone">☎</div><p class="eyebrow">ASK A COLLEAGUE</p><h2>30 seconds. One teammate.</h2><strong id="friendTime" class="big">30</strong><button id="friendStart" class="primary">START 30 SECONDS</button></div></div>
-<div id="boardModal" class="modal"><div class="modalCard"><button class="x">×</button><p class="eyebrow">HALL OF FAME</p><h2>Tonight's leaderboard</h2><div id="board" class="board"></div><button id="clear" class="clear">CLEAR LEADERBOARD</button></div></div>
-<div id="hostModal" class="modal"><div class="modalCard"><button class="x">×</button><p class="eyebrow">HOST CONSOLE</p><h2>Show controls</h2><div class="hostGrid"><button id="pause">PAUSE TIMER <kbd>P</kbd></button><button id="reveal">REVEAL ANSWER <kbd>R</kbd></button><button id="next">NEXT QUESTION <kbd>SPACE</kbd></button><button id="hostFull">FULLSCREEN <kbd>F11</kbd></button></div><p class="keys">1–4 choose • Enter lock • M mute • H host</p></div></div>
-
-<script src="questions.js"></script><script src="app.js"></script>
-</body></html>
+    <nav class="home-tools">
+      <a href="./stage/?code=NAV26">Stage screen</a>
+      <a href="./host/?code=NAV26">Host controls</a>
+    </nav>
+  </main>
+  <script>
+    document.querySelectorAll("a").forEach(function(a){
+      a.addEventListener("pointerdown",function(){ document.body.classList.add("tap"); });
+    });
+  </script>
+</body>
+</html>
