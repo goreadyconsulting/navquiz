@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#090512">
+  <title>NAVRANG • Host</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Yatra+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/navrang.css">
+</head>
+<body class="host-page">
+  <div class="grain"></div>
+  <section id="hostLogin" class="host-login card">
+    <p class="overline">PRESENTER ACCESS</p>
+    <h1>NAVRANG</h1>
+    <div class="field"><label>GAME CODE</label><input id="hostCode" value="NAV26" maxlength="10"></div>
+    <div class="field"><label>HOST PIN</label><input id="hostPin" type="password" placeholder="Enter host PIN"></div>
+    <button id="loginBtn" class="btn btn-primary" style="width:100%">OPEN CONTROL ROOM</button>
+    <div id="loginError" class="error"></div>
+  </section>
+
+  <main class="host-shell">
+    <header class="topbar">
+      <div class="stage-brand"><b>NAVRANG</b><span>HOST CONTROL</span></div>
+      <div class="host-links">
+        <a id="stageLink" target="_blank">OPEN STAGE</a>
+        <a id="playLink" target="_blank">OPEN PLAYER</a>
+      </div>
+    </header>
+
+    <section class="host-status">
+      <div class="stat"><small>PLAYERS</small><b id="hPlayers">0</b></div>
+      <div class="stat"><small>ROUND</small><b id="hRound">LOBBY</b></div>
+      <div class="stat"><small>PHASE</small><b id="hPhase">LOBBY</b></div>
+      <div class="stat"><small>ANSWERS</small><b id="hAnswers">0</b></div>
+    </section>
+
+    <section class="host-grid" style="margin-top:16px">
+      <div class="host-column">
+        <article class="host-card card host-current">
+          <p id="hKicker" class="overline">READY</p>
+          <h2 id="hRoundName" style="font-family:Yatra One;font-size:42px;text-transform:none;letter-spacing:0;margin-bottom:6px">Lobby</h2>
+          <h3 id="hQuestion">Players can join now.</h3>
+          <p id="hExplanation" class="muted"></p>
+          <div id="hostDistribution" class="host-dist"></div>
+        </article>
+
+        <article class="host-card card">
+          <h2>Show controls</h2>
+          <div class="host-actions">
+            <button id="startGame" class="primary-action">START GAME</button>
+            <button id="openNext" class="primary-action">OPEN NEXT QUESTION</button>
+            <button id="reveal">REVEAL ANSWER</button>
+            <button id="roundResults">ROUND RESULTS</button>
+            <button id="showBoard">LEADERBOARD</button>
+            <button id="nextRound">NEXT ROUND</button>
+            <button id="finishGame">FINISH GAME</button>
+            <button id="backLobby">BACK TO LOBBY</button>
+            <button id="resetGame" class="btn-danger">RESET EVENT</button>
+          </div>
+        </article>
+
+        <article class="host-card card">
+          <h2>Questions in this round</h2>
+          <div id="questionList" class="question-list"><p class="muted">Start the game to load Round 1.</p></div>
+        </article>
+      </div>
+
+      <div class="host-column">
+        <article class="host-card card">
+          <h2>Individual leaders</h2>
+          <div id="hostLeaders"></div>
+        </article>
+        <article class="host-card card">
+          <h2>Team standings</h2>
+          <div id="hostTeams"></div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script src="../assets/common.js"></script>
+  <script src="./host.js"></script>
+</body>
+</html>
