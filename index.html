@@ -2,225 +2,99 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#12061f">
-  <title>NAVRANG</title>
-  <meta name="description" content="NAVRANG is a live Navratri celebration game designed for large office audiences.">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+  <meta name="theme-color" content="#070b11">
+  <title>GOSH Navratri Quiz</title>
+  <meta name="description" content="GOSH Navratri Quiz - 25 Bollywood and Navratri culture questions. Fastest fingers first.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Yatra+One&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./assets/showcase.css">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/quiz.css">
 </head>
 <body>
-  <div class="noise" aria-hidden="true"></div>
+  <main id="app">
+    <section id="startScreen" class="screen start-screen">
+      <div class="festive-dots" aria-hidden="true"></div>
+      <div class="start-card">
+        <img class="gosh-logo" src="./assets/gosh-logo.webp" alt="GOSH - GUS on Staff Happiness">
+        <p class="kicker">BOLLYWOOD • GARBA • DANDIYA • POP CULTURE</p>
+        <h1>GOSH Navratri Quiz</h1>
+        <p class="sub">25 questions. 20 seconds each. Fastest fingers score the most.</p>
 
-  <header class="topbar">
-    <a class="brand" href="#top">NAVRANG</a>
-    <span class="topline">A live Navratri game for everyone in the room</span>
-  </header>
-
-  <main id="top">
-    <section class="hero">
-      <video class="hero-video" autoplay muted loop playsinline>
-        <source src="./assets/navratri-intro.mp4" type="video/mp4">
-      </video>
-      <div class="hero-glow hero-glow-one"></div>
-      <div class="hero-glow hero-glow-two"></div>
-
-      <div class="hero-copy">
-        <p class="eyebrow">THE OFFICE NAVRATRI GAME</p>
-        <h1>NAVRANG</h1>
-        <p class="hero-line">Nine colours. Nine rounds. One celebration.</p>
-        <p class="hero-sub">Everyone joins. Everyone plays. Nobody gets eliminated.</p>
-        <div class="hero-actions">
-          <a class="primary-btn" href="#experience">SEE THE EXPERIENCE <span>↓</span></a>
-          <button class="sound-btn" id="soundBtn" type="button">PLAY CELEBRATION SOUND</button>
-        </div>
-      </div>
-
-      <div class="hero-mandala" aria-hidden="true">
-        <div class="petal" style="--i:0;--c:#ff5b54"></div>
-        <div class="petal" style="--i:1;--c:#ff9f43"></div>
-        <div class="petal" style="--i:2;--c:#fee440"></div>
-        <div class="petal" style="--i:3;--c:#37d67a"></div>
-        <div class="petal" style="--i:4;--c:#00c2a8"></div>
-        <div class="petal" style="--i:5;--c:#00bbf9"></div>
-        <div class="petal" style="--i:6;--c:#6c63ff"></div>
-        <div class="petal" style="--i:7;--c:#9b5de5"></div>
-        <div class="petal" style="--i:8;--c:#f15bb5"></div>
-        <div class="mandala-center"><span>નવરાત્રી</span><b>9</b><small>ROUNDS</small></div>
-      </div>
-
-      <div class="hero-stats">
-        <div><strong data-count="500">0</strong><span>PLAYERS</span></div>
-        <div><strong data-count="9">0</strong><span>ROUNDS</span></div>
-        <div><strong data-count="5">0</strong><span>COLOUR TEAMS</span></div>
-      </div>
-    </section>
-
-    <section class="section intro" id="experience">
-      <div class="section-copy">
-        <p class="eyebrow">ONE ROOM. ONE GAME.</p>
-        <h2>Built to feel like a celebration, not a quiz.</h2>
-        <p>People play together from their phones while the main screen becomes the festival stage. The experience moves between trivia, colour memory, beats, Bollywood, team play and a high-energy finale.</p>
-      </div>
-
-      <div class="stage-preview">
-        <div class="stage-screen">
-          <div class="stage-header">
-            <span>NAVRANG LIVE</span>
-            <span>ROUND 05 / 09</span>
+        <form id="startForm" novalidate>
+          <label for="email">Email ID</label>
+          <div class="email-row">
+            <input id="email" type="email" autocomplete="email" placeholder="name@example.com" required>
+            <button id="startButton" type="submit">START QUIZ <span>→</span></button>
           </div>
-          <div class="stage-title">
-            <span class="round-chip">DANDIYA DASH</span>
-            <h3>Fast hands.<br>Fast points.</h3>
-            <p>10 seconds per question. The room moves together.</p>
-          </div>
-          <div class="stage-ticker">
-            <div><b>487</b><span>players live</span></div>
-            <div><b>84%</b><span>answered</span></div>
-            <div><b>02.4s</b><span>fastest</span></div>
-          </div>
-        </div>
+          <p id="startError" class="error" aria-live="polite"></p>
+        </form>
 
-        <div class="phone-preview">
-          <div class="phone-top"><span>NAVRANG</span><span>ROUND 5</span></div>
-          <p class="phone-category">DANDIYA DASH</p>
-          <h4>Capital of Gujarat?</h4>
-          <button>Ahmedabad</button>
-          <button class="phone-selected">Gandhinagar</button>
-          <button>Surat</button>
-          <button>Vadodara</button>
-          <div class="phone-score"><span>SCORE</span><strong>8,240</strong></div>
+        <div class="rules">
+          <span><b>25</b> questions</span>
+          <span><b>20s</b> per question</span>
+          <span><b>1000</b> max points each</span>
         </div>
       </div>
     </section>
 
-    <section class="section rounds-section">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">THE NINE ROUNDS</p>
-          <h2>Every round changes the energy.</h2>
+    <section id="quizScreen" class="screen quiz-screen" hidden>
+      <header class="quiz-header">
+        <img src="./assets/gosh-logo.webp" alt="GOSH">
+        <div class="question-count"><span>QUESTION</span><strong id="questionNumber">1 / 25</strong></div>
+        <div class="score-box"><span>SCORE</span><strong id="score">0</strong></div>
+      </header>
+
+      <div class="progress-track"><i id="progressBar"></i></div>
+
+      <div class="quiz-main">
+        <div class="timer-wrap" aria-label="Question timer">
+          <svg viewBox="0 0 120 120" aria-hidden="true">
+            <circle class="timer-bg" cx="60" cy="60" r="52"></circle>
+            <circle id="timerRing" class="timer-ring" cx="60" cy="60" r="52"></circle>
+          </svg>
+          <div><strong id="timer">20</strong><span>SECONDS</span></div>
         </div>
-        <p>No fifteen-question ladder. No lifelines. The format keeps changing so the room never settles into a routine.</p>
+
+        <div class="question-wrap">
+          <p id="category" class="category">BOLLYWOOD</p>
+          <h2 id="questionText"></h2>
+          <div id="answers" class="answers"></div>
+          <div id="feedback" class="feedback" aria-live="polite"></div>
+        </div>
       </div>
 
-      <div class="round-grid">
-        <article class="round-card" style="--accent:#ffb347">
-          <span>01</span><div class="round-icon">✨</div><h3>Shubh Aarambh</h3><p>Fast, welcoming trivia to get everyone playing immediately.</p>
-        </article>
-        <article class="round-card" style="--accent:#ff4d8d">
-          <span>02</span><div class="round-icon">🎨</div><h3>Rang Pehchano</h3><p>Watch a colour sequence on the big screen and remember the order.</p>
-        </article>
-        <article class="round-card" style="--accent:#9b5de5">
-          <span>03</span><div class="round-icon">🥁</div><h3>Garba Beats</h3><p>Listen to a rhythm, count the beats and lock the answer.</p>
-        </article>
-        <article class="round-card" style="--accent:#00c2a8">
-          <span>04</span><div class="round-icon">🪔</div><h3>India Celebrates</h3><p>Festivals, traditions and culture from across India.</p>
-        </article>
-        <article class="round-card" style="--accent:#ff6b35">
-          <span>05</span><div class="round-icon">⚡</div><h3>Dandiya Dash</h3><p>Ten-second rapid fire where speed adds bonus points.</p>
-        </article>
-        <article class="round-card" style="--accent:#ffd166">
-          <span>06</span><div class="round-icon">🎬</div><h3>Filmy Garba</h3><p>Bollywood, music and festive movie moments.</p>
-        </article>
-        <article class="round-card" style="--accent:#f15bb5">
-          <span>07</span><div class="round-icon">😄</div><h3>Emoji Garba</h3><p>Decode films, phrases and places from emoji clues.</p>
-        </article>
-        <article class="round-card" style="--accent:#00bbf9">
-          <span>08</span><div class="round-icon">🤝</div><h3>Team Raas</h3><p>Every correct answer pushes your colour team up the board.</p>
-        </article>
-        <article class="round-card finale-card" style="--accent:#fee440">
-          <span>09</span><div class="round-icon">🔥</div><h3>Maha Aarti</h3><p>The grand finale with the biggest points and the loudest reveal.</p>
-        </article>
+      <footer class="quiz-footer">
+        <span id="playerEmail"></span>
+        <span>FASTEST FINGERS FIRST</span>
+      </footer>
+    </section>
+
+    <section id="resultScreen" class="screen result-screen" hidden>
+      <div class="result-card">
+        <img class="result-logo" src="./assets/gosh-logo.webp" alt="GOSH">
+        <p class="kicker">QUIZ COMPLETE</p>
+        <h2>That was filmi.</h2>
+        <div class="final-score"><span>FINAL SCORE</span><strong id="finalScore">0</strong><small>/ 25,000</small></div>
+        <div class="result-stats">
+          <div><span>CORRECT</span><strong id="correctCount">0 / 25</strong></div>
+          <div><span>AVG RESPONSE</span><strong id="avgTime">0.00s</strong></div>
+          <div><span>FASTEST</span><strong id="fastestTime">0.00s</strong></div>
+        </div>
+        <p id="resultEmail" class="result-email"></p>
+        <button id="restartButton" class="restart-btn">PLAY AGAIN</button>
       </div>
     </section>
 
-    <section class="section live-demo-section">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">TRY A MOMENT</p>
-          <h2>What the room sees.</h2>
-        </div>
-        <p>Pick an answer below. The reveal, scoring and crowd response animate instantly.</p>
+    <div id="fullscreenGuard" class="fullscreen-guard" hidden>
+      <div>
+        <div class="guard-icon">↗</div>
+        <h2>Full screen required</h2>
+        <p>The quiz is paused. Return to full screen to continue.</p>
+        <button id="resumeFullscreen">RETURN TO FULL SCREEN</button>
       </div>
-
-      <div class="live-demo">
-        <div class="question-card">
-          <div class="question-top">
-            <span>ROUND 04 • INDIA CELEBRATES</span>
-            <strong id="demoTimer">15</strong>
-          </div>
-          <h3>Bathukamma is a floral festival primarily associated with which state?</h3>
-          <div class="answer-grid" id="answerGrid">
-            <button data-answer="0"><b>A</b><span>Telangana</span></button>
-            <button data-answer="1"><b>B</b><span>Punjab</span></button>
-            <button data-answer="2"><b>C</b><span>Goa</span></button>
-            <button data-answer="3"><b>D</b><span>Assam</span></button>
-          </div>
-          <div class="demo-result" id="demoResult">
-            <p>Choose an answer to see the reveal.</p>
-          </div>
-        </div>
-
-        <div class="crowd-card">
-          <p class="eyebrow">THE ROOM VOTED</p>
-          <div class="vote-row"><b>A</b><div><i data-width="68"></i></div><span>68%</span></div>
-          <div class="vote-row"><b>B</b><div><i data-width="12"></i></div><span>12%</span></div>
-          <div class="vote-row"><b>C</b><div><i data-width="9"></i></div><span>9%</span></div>
-          <div class="vote-row"><b>D</b><div><i data-width="11"></i></div><span>11%</span></div>
-
-          <div class="crowd-meta">
-            <div><strong>472</strong><span>answers</span></div>
-            <div><strong>1.76s</strong><span>fastest</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section teams-section">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">TEAM RAAS</p>
-          <h2>Even if you're not first, your team still matters.</h2>
-        </div>
-        <p>Individual rankings keep the competition sharp. Team rankings keep the whole room invested.</p>
-      </div>
-
-      <div class="team-board">
-        <div class="team-row" style="--team:#00bbf9"><span>01</span><b>BLUE</b><div><i style="--w:96%"></i></div><strong>194,200</strong></div>
-        <div class="team-row" style="--team:#fee440"><span>02</span><b>YELLOW</b><div><i style="--w:91%"></i></div><strong>191,800</strong></div>
-        <div class="team-row" style="--team:#9b5de5"><span>03</span><b>PURPLE</b><div><i style="--w:86%"></i></div><strong>189,700</strong></div>
-        <div class="team-row" style="--team:#ff5b54"><span>04</span><b>RED</b><div><i style="--w:79%"></i></div><strong>187,400</strong></div>
-        <div class="team-row" style="--team:#37d67a"><span>05</span><b>GREEN</b><div><i style="--w:72%"></i></div><strong>185,300</strong></div>
-      </div>
-
-      <div class="micro-awards">
-        <div><span>⚡</span><strong>Fastest answer</strong><small>1.76 seconds</small></div>
-        <div><span>🔥</span><strong>Longest streak</strong><small>9 correct</small></div>
-        <div><span>↗</span><strong>Biggest climber</strong><small>+72 places</small></div>
-        <div><span>🎯</span><strong>Room accuracy</strong><small>81%</small></div>
-      </div>
-    </section>
-
-    <section class="final-section">
-      <video class="final-video" autoplay muted loop playsinline>
-        <source src="./assets/navratri-victory.mp4" type="video/mp4">
-      </video>
-      <canvas id="confetti"></canvas>
-      <div class="final-copy">
-        <p class="eyebrow">THE GRAND FINALE</p>
-        <h2>One room.<br>One winner.<br><span>One celebration.</span></h2>
-        <div class="podium">
-          <div class="podium-place second"><small>2ND</small><strong>ARJUN</strong><span>18,420</span></div>
-          <div class="podium-place first"><small>1ST</small><strong>AANYA</strong><span>18,960</span></div>
-          <div class="podium-place third"><small>3RD</small><strong>MEERA</strong><span>18,180</span></div>
-        </div>
-        <p class="winning-team">Winning team <strong>BLUE TEAM</strong></p>
-      </div>
-    </section>
+    </div>
   </main>
-
-  <script src="./assets/showcase.js"></script>
+  <script src="./assets/quiz.js"></script>
 </body>
 </html>
