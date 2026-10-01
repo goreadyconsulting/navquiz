@@ -42,18 +42,20 @@
       <header class="quiz-header">
         <img src="./assets/gosh-logo.webp" alt="GOSH">
         <div class="question-count"><span>QUESTION</span><strong id="questionNumber">1 / 25</strong></div>
-        <div class="score-box"><span>SCORE</span><strong id="score">0</strong></div>
       </header>
 
       <div class="progress-track"><i id="progressBar"></i></div>
 
       <div class="quiz-main">
-        <div class="timer-wrap" aria-label="Question timer">
-          <svg viewBox="0 0 120 120" aria-hidden="true">
-            <circle class="timer-bg" cx="60" cy="60" r="52"></circle>
-            <circle id="timerRing" class="timer-ring" cx="60" cy="60" r="52"></circle>
-          </svg>
-          <div><strong id="timer">7</strong><span>SECONDS</span></div>
+        <div class="timer-score-row">
+          <div class="timer-wrap" aria-label="Question timer">
+            <svg viewBox="0 0 120 120" aria-hidden="true">
+              <circle class="timer-bg" cx="60" cy="60" r="52"></circle>
+              <circle id="timerRing" class="timer-ring" cx="60" cy="60" r="52"></circle>
+            </svg>
+            <div><strong id="timer">7</strong><span>SECONDS</span></div>
+          </div>
+          <div class="score-box score-beside-timer"><span>SCORE</span><strong id="score">0</strong></div>
         </div>
 
         <div class="question-wrap">
