@@ -1,12 +1,16 @@
 :root{
-  --bg:#070b11;
-  --panel:#0d131d;
-  --panel2:#111a27;
+  --bg:#0b1118;
+  --panel:#101925;
+  --panel2:#152131;
   --line:rgba(255,255,255,.10);
   --text:#f7f9fc;
   --muted:#8290a3;
   --blue:#0874c9;
   --blue2:#0e8ce8;
+  --peacock:#0f8b8d;
+  --peacock-bright:#12a39f;
+  --peacock-soft:#1bb7aa;
+  --peacock-glow:rgba(18,163,159,.22);
   --yellow:#ffd92f;
   --orange:#ff8a35;
   --pink:#f15b9e;
@@ -22,16 +26,17 @@ button{cursor:pointer}
 [hidden]{display:none!important}
 .screen{min-height:100vh;width:100%;position:relative}
 .start-screen{display:grid;place-items:center;padding:28px;background:
-  radial-gradient(circle at 18% 18%,rgba(14,140,232,.13),transparent 30%),
-  radial-gradient(circle at 84% 82%,rgba(241,91,158,.11),transparent 28%),
-  radial-gradient(circle at 78% 18%,rgba(255,217,47,.08),transparent 25%),
+  radial-gradient(circle at 18% 18%,rgba(18,163,159,.18),transparent 30%),
+  radial-gradient(circle at 84% 82%,rgba(241,91,158,.10),transparent 28%),
+  radial-gradient(circle at 78% 18%,rgba(255,217,47,.10),transparent 25%),
+  radial-gradient(circle at 50% 100%,rgba(14,140,232,.10),transparent 34%),
   var(--bg);overflow:hidden}
 .festive-dots{position:absolute;inset:0;opacity:.18;background-image:
   radial-gradient(circle,rgba(255,217,47,.75) 0 2px,transparent 2.5px),
-  radial-gradient(circle,rgba(14,140,232,.55) 0 1.5px,transparent 2px);
+  radial-gradient(circle,rgba(27,183,170,.62) 0 1.5px,transparent 2px);
   background-size:58px 58px,34px 34px;background-position:0 0,17px 17px;
   mask-image:radial-gradient(circle at center,#000,transparent 75%)}
-.start-card{position:relative;z-index:2;width:min(780px,100%);text-align:center;padding:42px 38px 34px;border:1px solid var(--line);border-radius:30px;background:rgba(9,14,22,.88);box-shadow:var(--shadow);backdrop-filter:blur(18px)}
+.start-card{position:relative;z-index:2;width:min(780px,100%);text-align:center;padding:42px 38px 34px;border:1px solid rgba(27,183,170,.16);border-radius:30px;background:rgba(13,22,29,.90);box-shadow:0 30px 90px rgba(0,0,0,.32),0 0 44px rgba(18,163,159,.08);backdrop-filter:blur(18px)}
 .gosh-logo{display:block;width:min(410px,75%);height:auto;margin:0 auto 28px}
 .kicker{margin:0 0 14px;color:var(--yellow);font-size:10px;font-weight:800;letter-spacing:.19em}
 h1{font-size:clamp(42px,7vw,76px);line-height:.98;letter-spacing:-.055em;margin:0 0 18px}
@@ -40,7 +45,7 @@ h1{font-size:clamp(42px,7vw,76px);line-height:.98;letter-spacing:-.055em;margin:
 #startForm label{display:block;margin:0 0 8px;font-size:9px;font-weight:800;letter-spacing:.16em;color:#8d9aac;text-transform:uppercase}
 .email-row{display:grid;grid-template-columns:1fr auto;gap:9px}
 .email-row input{min-width:0;height:58px;border-radius:15px;border:1px solid var(--line);background:#0a111a;color:white;padding:0 16px;font-size:16px;outline:none}
-.email-row input:focus{border-color:rgba(14,140,232,.7);box-shadow:0 0 0 4px rgba(14,140,232,.09)}
+.email-row input:focus{border-color:rgba(18,163,159,.78);box-shadow:0 0 0 4px rgba(18,163,159,.12)}
 .email-row button,.restart-btn,.fullscreen-guard button{height:58px;border:0;border-radius:15px;padding:0 22px;background:linear-gradient(120deg,var(--yellow),#ffba32);color:#16120a;font-size:10px;font-weight:900;letter-spacing:.11em}
 .email-row button span{margin-left:12px}
 .error{min-height:18px;margin:8px 2px 0;color:#ff818a;font-size:11px}
@@ -48,8 +53,10 @@ h1{font-size:clamp(42px,7vw,76px);line-height:.98;letter-spacing:-.055em;margin:
 .rules span{padding:12px 8px;border:1px solid rgba(255,255,255,.07);border-radius:13px;color:#758397;font-size:9px;letter-spacing:.08em;text-transform:uppercase;background:rgba(255,255,255,.025)}
 .rules b{color:white;font-size:14px;margin-right:4px}
 .quiz-screen{display:flex;flex-direction:column;background:
-  radial-gradient(circle at 90% 10%,rgba(14,140,232,.11),transparent 30%),
-  radial-gradient(circle at 5% 90%,rgba(241,91,158,.07),transparent 30%),var(--bg)}
+  radial-gradient(circle at 88% 10%,rgba(18,163,159,.17),transparent 30%),
+  radial-gradient(circle at 6% 88%,rgba(14,140,232,.10),transparent 28%),
+  radial-gradient(circle at 52% 100%,rgba(255,217,47,.06),transparent 30%),
+  var(--bg)}
 .quiz-header{height:78px;padding:0 clamp(18px,3.5vw,52px);display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:34px;border-bottom:1px solid rgba(255,255,255,.06)}
 .quiz-header img{width:165px;height:auto}
 .question-count,.score-box{text-align:right}
@@ -57,23 +64,23 @@ h1{font-size:clamp(42px,7vw,76px);line-height:.98;letter-spacing:-.055em;margin:
 .question-count strong,.score-box strong{font-size:17px}
 .score-box strong{color:var(--yellow)}
 .progress-track{height:3px;background:rgba(255,255,255,.05)}
-.progress-track i{display:block;height:100%;width:4%;background:linear-gradient(90deg,var(--blue2),var(--yellow));transition:width .4s ease}
+.progress-track i{display:block;height:100%;width:4%;background:linear-gradient(90deg,var(--peacock-bright),var(--peacock-soft),var(--yellow));transition:width .4s ease}
 .quiz-main{flex:1;width:min(1220px,100%);margin:auto;padding:clamp(24px,4vh,52px) 26px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px}
 .timer-wrap{width:118px;height:118px;position:relative;display:grid;place-items:center;margin:0 auto 4px}
 .timer-wrap svg{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)}
 .timer-bg,.timer-ring{fill:none;stroke-width:7}
 .timer-bg{stroke:rgba(255,255,255,.07)}
-.timer-ring{stroke:var(--yellow);stroke-linecap:round;stroke-dasharray:326.73;stroke-dashoffset:0;transition:stroke .25s}
+.timer-ring{stroke:var(--peacock-soft);stroke-linecap:round;stroke-dasharray:326.73;stroke-dashoffset:0;transition:stroke .25s}
 .timer-wrap>div{text-align:center}
 .timer-wrap strong{display:block;font-size:44px;line-height:1}
 .timer-wrap span{font-size:7px;letter-spacing:.14em;color:#748297}
 .question-wrap{width:min(1080px,100%);max-width:1080px;text-align:center;margin:0 auto}
-.category{font-size:10px;font-weight:900;letter-spacing:.19em;color:var(--blue2);margin:2px 0 16px}
+.category{font-size:10px;font-weight:900;letter-spacing:.19em;color:var(--peacock-soft);margin:2px 0 16px}
 .question-wrap h2{font-size:clamp(42px,5.6vw,74px);line-height:1.04;letter-spacing:-.045em;margin:0 auto 34px;max-width:1080px;text-align:center;text-wrap:balance}
 .answers{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:940px;margin:0 auto}
 .answer{min-height:86px;border:1px solid var(--line);border-radius:18px;padding:15px 18px;background:rgba(255,255,255,.032);color:white;display:grid;grid-template-columns:38px 1fr;gap:13px;align-items:center;text-align:left;transition:.16s}
-.answer:hover:not(:disabled){transform:translateY(-2px);border-color:rgba(14,140,232,.5);background:rgba(14,140,232,.07)}
-.answer b{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(14,140,232,.45);color:#65baff;font-size:12px}
+.answer:hover:not(:disabled){transform:translateY(-2px);border-color:rgba(18,163,159,.58);background:rgba(18,163,159,.09);box-shadow:0 10px 28px rgba(18,163,159,.08)}
+.answer b{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(27,183,170,.50);color:#7fe2d8;font-size:12px}
 .answer span{font-size:15px;font-weight:600}
 .answer:disabled{cursor:default}
 .answer.correct{border-color:rgba(50,213,131,.75);background:rgba(50,213,131,.10)}
@@ -86,9 +93,10 @@ h1{font-size:clamp(42px,7vw,76px);line-height:.98;letter-spacing:-.055em;margin:
 .feedback .points{color:var(--yellow)}
 .quiz-footer{height:52px;padding:0 clamp(18px,3.5vw,52px);display:flex;align-items:center;justify-content:space-between;color:#667589;font-size:8px;letter-spacing:.12em;text-transform:uppercase}
 .result-screen{display:grid;place-items:center;padding:28px;background:
-  radial-gradient(circle at 50% 10%,rgba(14,140,232,.14),transparent 30%),
-  radial-gradient(circle at 50% 90%,rgba(255,217,47,.08),transparent 28%),var(--bg)}
-.result-card{width:min(760px,100%);padding:42px 34px;text-align:center;border:1px solid var(--line);border-radius:30px;background:var(--panel);box-shadow:var(--shadow)}
+  radial-gradient(circle at 50% 10%,rgba(18,163,159,.18),transparent 30%),
+  radial-gradient(circle at 18% 82%,rgba(14,140,232,.09),transparent 28%),
+  radial-gradient(circle at 80% 88%,rgba(255,217,47,.09),transparent 28%),var(--bg)}
+.result-card{width:min(760px,100%);padding:42px 34px;text-align:center;border:1px solid rgba(27,183,170,.16);border-radius:30px;background:var(--panel);box-shadow:0 30px 90px rgba(0,0,0,.32),0 0 44px rgba(18,163,159,.08)}
 .result-logo{width:min(330px,70%);margin-bottom:26px}
 .result-card h2{font-size:clamp(42px,6vw,66px);letter-spacing:-.05em;margin:0 0 28px}
 .final-score{margin:0 0 30px}
