@@ -58,8 +58,8 @@ h1{font-size:clamp(42px,7vw,76px);line-height:.98;letter-spacing:-.055em;margin:
 .score-box strong{color:var(--yellow)}
 .progress-track{height:3px;background:rgba(255,255,255,.05)}
 .progress-track i{display:block;height:100%;width:4%;background:linear-gradient(90deg,var(--blue2),var(--yellow));transition:width .4s ease}
-.quiz-main{flex:1;width:min(1180px,100%);margin:auto;padding:clamp(28px,5vh,68px) 26px;display:grid;grid-template-columns:160px 1fr;gap:clamp(30px,5vw,72px);align-items:start}
-.timer-wrap{width:140px;height:140px;position:relative;display:grid;place-items:center}
+.quiz-main{flex:1;width:min(1220px,100%);margin:auto;padding:clamp(24px,4vh,52px) 26px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px}
+.timer-wrap{width:118px;height:118px;position:relative;display:grid;place-items:center;margin:0 auto 4px}
 .timer-wrap svg{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)}
 .timer-bg,.timer-ring{fill:none;stroke-width:7}
 .timer-bg{stroke:rgba(255,255,255,.07)}
@@ -67,11 +67,11 @@ h1{font-size:clamp(42px,7vw,76px);line-height:.98;letter-spacing:-.055em;margin:
 .timer-wrap>div{text-align:center}
 .timer-wrap strong{display:block;font-size:44px;line-height:1}
 .timer-wrap span{font-size:7px;letter-spacing:.14em;color:#748297}
-.question-wrap{max-width:900px}
-.category{font-size:9px;font-weight:900;letter-spacing:.19em;color:var(--blue2);margin:8px 0 18px}
-.question-wrap h2{font-size:clamp(30px,4.3vw,56px);line-height:1.08;letter-spacing:-.035em;margin:0 0 34px;max-width:920px}
-.answers{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.answer{min-height:82px;border:1px solid var(--line);border-radius:18px;padding:15px 18px;background:rgba(255,255,255,.032);color:white;display:grid;grid-template-columns:38px 1fr;gap:13px;align-items:center;text-align:left;transition:.16s}
+.question-wrap{width:min(1080px,100%);max-width:1080px;text-align:center;margin:0 auto}
+.category{font-size:10px;font-weight:900;letter-spacing:.19em;color:var(--blue2);margin:2px 0 16px}
+.question-wrap h2{font-size:clamp(42px,5.6vw,74px);line-height:1.04;letter-spacing:-.045em;margin:0 auto 34px;max-width:1080px;text-align:center;text-wrap:balance}
+.answers{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:940px;margin:0 auto}
+.answer{min-height:86px;border:1px solid var(--line);border-radius:18px;padding:15px 18px;background:rgba(255,255,255,.032);color:white;display:grid;grid-template-columns:38px 1fr;gap:13px;align-items:center;text-align:left;transition:.16s}
 .answer:hover:not(:disabled){transform:translateY(-2px);border-color:rgba(14,140,232,.5);background:rgba(14,140,232,.07)}
 .answer b{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(14,140,232,.45);color:#65baff;font-size:12px}
 .answer span{font-size:15px;font-weight:600}
@@ -81,7 +81,7 @@ h1{font-size:clamp(42px,7vw,76px);line-height:.98;letter-spacing:-.055em;margin:
 .answer.wrong{border-color:rgba(255,92,104,.75);background:rgba(255,92,104,.09)}
 .answer.wrong b{border-color:var(--red);color:var(--red)}
 .answer.dim{opacity:.32}
-.feedback{min-height:54px;margin-top:20px;color:#99a6b7;font-size:13px}
+.feedback{min-height:54px;margin:20px auto 0;color:#99a6b7;font-size:13px;text-align:center;max-width:900px}
 .feedback strong{display:block;color:white;font-size:18px;margin-bottom:4px}
 .feedback .points{color:var(--yellow)}
 .quiz-footer{height:52px;padding:0 clamp(18px,3.5vw,52px);display:flex;align-items:center;justify-content:space-between;color:#667589;font-size:8px;letter-spacing:.12em;text-transform:uppercase}
@@ -114,14 +114,14 @@ h1{font-size:clamp(42px,7vw,76px);line-height:.98;letter-spacing:-.055em;margin:
   .quiz-header{grid-template-columns:1fr auto;gap:14px;padding:0 16px}
   .quiz-header img{width:115px}
   .question-count{display:none}
-  .quiz-main{grid-template-columns:1fr;padding:20px 16px 26px}
-  .timer-wrap{width:88px;height:88px;justify-self:end;margin-bottom:-72px;z-index:2}
+  .quiz-main{padding:18px 16px 26px;justify-content:flex-start;gap:12px}
+  .timer-wrap{width:86px;height:86px;margin:4px auto 0}
   .timer-wrap strong{font-size:28px}
   .timer-wrap span{font-size:6px}
-  .question-wrap{padding-top:0}
-  .category{padding-right:100px}
-  .question-wrap h2{font-size:30px;padding-right:2px;margin-bottom:24px}
-  .answers{grid-template-columns:1fr;gap:9px}
+  .question-wrap{padding-top:0;text-align:center}
+  .category{padding-right:0;margin-top:2px}
+  .question-wrap h2{font-size:clamp(34px,8vw,46px);padding-right:0;margin-bottom:24px;text-align:center}
+  .answers{grid-template-columns:1fr;gap:9px;max-width:620px}
   .answer{min-height:64px}
   .quiz-footer{font-size:7px}
   .result-stats{grid-template-columns:1fr}
