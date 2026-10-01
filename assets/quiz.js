@@ -33,7 +33,7 @@
     {c:"BOLLYWOOD",q:"Bunny and Naina are the central characters of which film?",o:["Tamasha","Yeh Jawaani Hai Deewani","Wake Up Sid","Jaane Tu... Ya Jaane Na"],a:1}
   ];
 
-  const QUESTION_MS = 20000;
+  const QUESTION_MS = 7000;
   const MAX_PER_QUESTION = 1000;
   const MIN_CORRECT_SCORE = 500;
   const CIRC = 326.73;
@@ -215,7 +215,7 @@
       if(i === item.a) btn.classList.add("correct");
       else btn.classList.add("dim");
     });
-    feedback.innerHTML = '<strong>Time!</strong><span>20 seconds are up.</span>';
+    feedback.innerHTML = '<strong>Time!</strong><span>7 seconds are up.</span>';
     setTimeout(nextQuestion, 1350);
   }
 
