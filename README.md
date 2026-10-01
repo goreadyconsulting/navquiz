@@ -1,20 +1,21 @@
-# NAVRANG
+# GOSH Navratri Quiz
 
-NAVRANG is a single-page visual concept for a large office Navratri game.
+A single-page, frontend-only Bollywood and Navratri culture quiz for GOSH.
 
-The current build is intentionally focused on presentation and experience design only. It has no backend, no control panel, no multiplayer dependency and no setup requirement.
+## Experience
 
-Open the GitHub Pages site and scroll through:
+- GOSH-branded email entry screen
+- 25 office-appropriate questions
+- Mostly Bollywood, film music, Garba and Dandiya culture
+- No religious quiz questions
+- 20 seconds per question
+- Fastest-finger scoring: correct answers earn more points when submitted faster
+- Fullscreen required during the quiz
+- Quiz pauses if fullscreen is exited
+- Final score, correct answers, average response time and fastest answer
 
-- the NAVRANG identity
-- the large-audience concept
-- all nine themed rounds
-- a playable sample question
-- team standings and live-event moments
-- the finale and winner reveal
+## Current build
 
-The page is designed to be shown directly in a meeting from one URL.
+The site is intentionally frontend-only. Email and scores are not sent to a backend yet, and cross-player rankings are not calculated centrally.
 
-## Publish
-
-GitHub Pages should publish directly from the `main` branch and repository root.
+GitHub Pages can publish directly from `main` and the repository root.
