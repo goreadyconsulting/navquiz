@@ -165,7 +165,7 @@
     timerEl.textContent = seconds;
     const ratio = Math.max(0, Math.min(1, ms / QUESTION_MS));
     timerRing.style.strokeDashoffset = String(CIRC * (1 - ratio));
-    timerRing.style.stroke = seconds <= 5 ? "var(--red)" : seconds <= 10 ? "var(--orange)" : "var(--yellow)";
+    timerRing.style.stroke = seconds <= 2 ? "var(--red)" : seconds <= 4 ? "var(--orange)" : "var(--peacock-soft)";
   }
 
   function chooseAnswer(choice){
