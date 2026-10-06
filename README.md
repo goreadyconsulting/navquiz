@@ -53,6 +53,7 @@ Production admin must be protected by authenticated staff access. There should b
     │   └── index.html
     └── assets/
         ├── gosh-logo.webp
+        ├── navratri-quiz-bg.jpg
         ├── quiz.css
         ├── quiz.js
         ├── admin.css
@@ -63,6 +64,7 @@ Every file currently in the repository is required.
 File responsibilities:
 
 - index.html: participant entry, quiz, result and fullscreen-required screens.
+- assets/navratri-quiz-bg.jpg: generated festive Garba/Navratri background used across the participant entry, quiz, leaderboard checkpoint and results screens.
 - assets/quiz.css: participant visual design and responsive layout.
 - assets/quiz.js: current frontend-only question bank, timer, scoring prototype and fullscreen behavior.
 - admin/index.html: admin portal layout.
@@ -127,7 +129,8 @@ Requirements:
 - Correct answer is briefly revealed after the answer locks or the timer expires.
 - Then advance automatically to the next question.
 - Progress indicator shows the current question out of 25.
-- Score remains visible beside the timer.
+- Timer is centered above the question.
+- Score is shown inside the right-side leaderboard panel, underneath the top-three list.
 - A compact live leaderboard sits on the right on desktop, showing the participant's current rank and the current top three.
 - After questions 5, 10, 15, 20 and 25, pause the quiz and show a leaderboard checkpoint before continuing.
 - The checkpoint must show the participant's current rank, current score and official top three.
@@ -547,6 +550,7 @@ Keep:
 - Fullscreen-required flow.
 - Current admin visual structure.
 - Bright, colorful Navratri participant palette using peacock green, saffron, yellow, pink and purple rather than a dark blue quiz theme.
+- Generated Garba/Navratri festival background artwork used consistently behind the participant experience with readable translucent UI overlays.
 - Right-side participant rank panel and five-question leaderboard checkpoint flow.
 
 Replace:
