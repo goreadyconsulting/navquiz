@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0f8b8d">
+  <title>GOSH Navratri Quiz | Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/admin.css">
+</head>
+<body>
+  <div class="admin-shell">
+    <aside class="sidebar">
+      <a class="admin-brand" href="./">
+        <img src="../assets/gosh-logo.webp" alt="GOSH">
+        <span>QUIZ ADMIN</span>
+      </a>
+      <nav class="side-nav" aria-label="Admin navigation">
+        <button class="nav-item active" data-view="overview"><span>⌂</span>Overview</button>
+        <button class="nav-item" data-view="leaderboard"><span>↗</span>Leaderboard</button>
+        <button class="nav-item" data-view="participants"><span>◎</span>Participants</button>
+        <button class="nav-item" data-view="questions"><span>?</span>Questions</button>
+        <button class="nav-item" data-view="settings"><span>⚙</span>Quiz settings</button>
+      </nav>
+      <div class="side-footer">
+        <span class="event-dot"></span>
+        <div><strong>GOSH Navratri Quiz</strong><small>25 questions · 7 seconds</small></div>
+      </div>
+    </aside>
+
+    <main class="admin-main">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">GOSH NAVRATRI QUIZ</p>
+          <h1 id="viewTitle">Overview</h1>
+        </div>
+        <div class="top-actions">
+          <div class="status-pill" id="statusPill"><i></i><span>QUIZ OPEN</span></div>
+          <button class="secondary-btn" id="toggleQuiz">CLOSE QUIZ</button>
+          <button class="primary-btn" id="exportCsv">EXPORT CSV</button>
+        </div>
+      </header>
+
+      <section class="view active-view" id="view-overview">
+        <div class="stats-grid">
+          <article class="stat-card peacock"><span>REGISTERED</span><strong>327</strong><small>+42 in the last hour</small></article>
+          <article class="stat-card yellow"><span>COMPLETED</span><strong>291</strong><small>89% completion</small></article>
+          <article class="stat-card pink"><span>AVERAGE SCORE</span><strong>16,840</strong><small>out of 25,000</small></article>
+          <article class="stat-card blue"><span>TOP SCORE</span><strong>23,912</strong><small>24 correct answers</small></article>
+        </div>
+
+        <div class="content-grid">
+          <section class="panel leaderboard-panel">
+            <div class="panel-head">
+              <div><p>LIVE LEADERBOARD</p><h2>Fastest fingers</h2></div>
+              <button class="text-btn" data-jump="leaderboard">VIEW ALL</button>
+            </div>
+            <div id="miniLeaderboard" class="mini-leaderboard"></div>
+          </section>
+
+          <section class="panel activity-panel">
+            <div class="panel-head">
+              <div><p>QUIZ HEALTH</p><h2>Live activity</h2></div>
+              <span class="live-chip">LIVE</span>
+            </div>
+            <div class="activity-chart">
+              <div class="bars" id="activityBars"></div>
+              <div class="axis"><span>14:00</span><span>14:30</span><span>15:00</span><span>15:30</span><span>16:00</span></div>
+            </div>
+            <div class="health-row">
+              <div><span>AVG RESPONSE</span><strong>3.14s</strong></div>
+              <div><span>FASTEST RESPONSE</span><strong>0.72s</strong></div>
+              <div><span>FULLSCREEN EXITS</span><strong>18</strong></div>
+            </div>
+          </section>
+        </div>
+
+        <section class="panel recent-panel">
+          <div class="panel-head">
+            <div><p>RECENT ACTIVITY</p><h2>Latest submissions</h2></div>
+            <button class="text-btn" data-jump="participants">VIEW PARTICIPANTS</button>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Participant</th><th>Score</th><th>Correct</th><th>Avg. response</th><th>Completed</th></tr></thead>
+              <tbody id="recentTable"></tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+
+      <section class="view" id="view-leaderboard">
+        <section class="panel">
+          <div class="panel-head stacked-mobile">
+            <div><p>OVERALL RANKING</p><h2>Leaderboard</h2></div>
+            <div class="legend"><span><i class="legend-score"></i>Score</span><span><i class="legend-speed"></i>Average response</span></div>
+          </div>
+          <div id="fullLeaderboard" class="full-leaderboard"></div>
+        </section>
+      </section>
+
+      <section class="view" id="view-participants">
+        <section class="panel">
+          <div class="panel-head stacked-mobile">
+            <div><p>SUBMISSIONS</p><h2>Participants</h2></div>
+            <label class="search-box"><span>⌕</span><input id="participantSearch" type="search" placeholder="Search email"></label>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Email</th><th>Status</th><th>Score</th><th>Correct</th><th>Avg. response</th><th>Fastest</th><th>Fullscreen exits</th></tr></thead>
+              <tbody id="participantsTable"></tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+
+      <section class="view" id="view-questions">
+        <section class="panel">
+          <div class="panel-head">
+            <div><p>QUESTION BANK</p><h2>25 questions</h2></div>
+            <span class="info-chip">7 SEC EACH</span>
+          </div>
+          <div id="questionList" class="question-list"></div>
+        </section>
+      </section>
+
+      <section class="view" id="view-settings">
+        <div class="settings-grid">
+          <section class="panel settings-panel">
+            <div class="panel-head"><div><p>GAMEPLAY</p><h2>Quiz settings</h2></div></div>
+            <div class="setting-row"><div><strong>Question timer</strong><span>Time available for every question.</span></div><b>7 seconds</b></div>
+            <div class="setting-row"><div><strong>Attempt limit</strong><span>Recommended production rule per email address.</span></div><b>1 attempt</b></div>
+            <div class="setting-row"><div><strong>Scoring</strong><span>Correct answers receive more points when answered faster.</span></div><b>Speed weighted</b></div>
+            <div class="setting-row"><div><strong>Fullscreen enforcement</strong><span>Pause the timer if fullscreen is exited.</span></div><button class="toggle on" aria-label="Fullscreen enforcement enabled"><i></i></button></div>
+            <div class="setting-row"><div><strong>Show answer after submission</strong><span>Reveal the correct option before the next question.</span></div><button class="toggle on" aria-label="Answer reveal enabled"><i></i></button></div>
+          </section>
+
+          <section class="panel settings-panel">
+            <div class="panel-head"><div><p>ACCESS</p><h2>Event controls</h2></div></div>
+            <div class="setting-row"><div><strong>Participant entry</strong><span>Users identify themselves with an email address.</span></div><b>Email required</b></div>
+            <div class="setting-row"><div><strong>Admin access</strong><span>Production portal must use authenticated staff access.</span></div><b>Secure login</b></div>
+            <div class="setting-row"><div><strong>Results export</strong><span>Download participant-level scores and timings.</span></div><b>CSV / XLSX</b></div>
+            <div class="setting-row"><div><strong>Quiz state</strong><span>Open or close the event for new attempts.</span></div><b id="settingsStatus">Open</b></div>
+          </section>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="../assets/admin.js"></script>
+</body>
+</html>
