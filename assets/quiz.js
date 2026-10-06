@@ -36,6 +36,7 @@
   const QUESTION_MS = 7000;
   const MAX_PER_QUESTION = 1000;
   const MIN_CORRECT_SCORE = 500;
+  const CHECKPOINT_MS = 4200;
   const CIRC = 326.73;
 
   const startScreen = document.getElementById("startScreen");
@@ -56,6 +57,15 @@
   const playerEmail = document.getElementById("playerEmail");
   const fullscreenGuard = document.getElementById("fullscreenGuard");
   const resumeFullscreen = document.getElementById("resumeFullscreen");
+  const currentRankEl = document.getElementById("currentRank");
+  const rankScoreEl = document.getElementById("rankScore");
+  const topThreeCompact = document.getElementById("topThreeCompact");
+  const leaderboardBreak = document.getElementById("leaderboardBreak");
+  const checkpointLabel = document.getElementById("checkpointLabel");
+  const breakRank = document.getElementById("breakRank");
+  const breakScore = document.getElementById("breakScore");
+  const breakTopThree = document.getElementById("breakTopThree");
+  const breakNext = document.getElementById("breakNext");
 
   let email = "";
   let index = 0;
@@ -71,8 +81,64 @@
   let responseTimes = [];
   let fastest = Infinity;
 
+  let checkpointActive = false;
+  let checkpointCompleted = 0;
+  let checkpointRemainingMs = CHECKPOINT_MS;
+  let checkpointDeadline = 0;
+  let checkpointFrame = 0;
+
   function validEmail(value){
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+  }
+
+  function leaderboardData(completed){
+    const count = Math.max(1,completed);
+    const possible = count * MAX_PER_QUESTION;
+    const leaders = [
+      {name:"Aanya S.",score:Math.round(possible * .948)},
+      {name:"Arjun M.",score:Math.round(possible * .922)},
+      {name:"Meera N.",score:Math.round(possible * .895)}
+    ];
+
+    const withPlayer = leaders.concat([{name:"You",score:score,isPlayer:true}]).sort(function(a,b){
+      return b.score-a.score;
+    });
+    const top3 = withPlayer.slice(0,3);
+
+    let rank = withPlayer.findIndex(function(p){return p.isPlayer;}) + 1;
+    if(rank > 3){
+      const ratio = possible ? Math.max(0,Math.min(1,score/possible)) : 0;
+      rank = Math.max(4,Math.round(92-(ratio*78)));
+    }
+
+    return {top3:top3,rank:rank};
+  }
+
+  function renderRankPanel(completed){
+    const data = leaderboardData(completed);
+    currentRankEl.textContent = completed ? "#"+data.rank : "#—";
+    rankScoreEl.textContent = score.toLocaleString("en-IN");
+    topThreeCompact.innerHTML = data.top3.map(function(p,i){
+      return '<div class="compact-rank-row">'+
+        '<span>#'+(i+1)+'</span>'+
+        '<div><strong>'+p.name+'</strong><small>'+(p.isPlayer?"YOUR POSITION":"LIVE SCORE")+'</small></div>'+
+        '<b>'+p.score.toLocaleString("en-IN")+'</b>'+
+      '</div>';
+    }).join("");
+  }
+
+  function renderCheckpoint(completed){
+    const data = leaderboardData(completed);
+    checkpointLabel.textContent = "CHECKPOINT · "+completed+" / "+QUESTIONS.length+" QUESTIONS";
+    breakRank.textContent = "#"+data.rank;
+    breakScore.textContent = score.toLocaleString("en-IN")+" points";
+    breakTopThree.innerHTML = data.top3.map(function(p,i){
+      return '<div class="break-rank-row">'+
+        '<span>#'+(i+1)+'</span>'+
+        '<div><strong>'+p.name+'</strong><small>'+(p.isPlayer?"You are in the top three":"Current leaderboard")+'</small></div>'+
+        '<b>'+p.score.toLocaleString("en-IN")+'</b>'+
+      '</div>';
+    }).join("");
   }
 
   startForm.addEventListener("submit", async function(e){
@@ -110,11 +176,14 @@
     active = true;
     finished = false;
     paused = false;
+    checkpointActive = false;
+    leaderboardBreak.hidden = true;
     startScreen.hidden = true;
     resultScreen.hidden = true;
     quizScreen.hidden = false;
     playerEmail.textContent = email;
     scoreEl.textContent = "0";
+    renderRankPanel(0);
     history.pushState({quiz:true},"",location.href);
     showQuestion();
   }
@@ -132,6 +201,7 @@
     categoryEl.textContent = item.c;
     questionText.textContent = item.q;
     answersEl.innerHTML = "";
+    renderRankPanel(index);
 
     item.o.forEach(function(option, optionIndex){
       const button = document.createElement("button");
@@ -149,7 +219,7 @@
   }
 
   function tick(now){
-    if(!active || finished || paused || locked) return;
+    if(!active || finished || paused || locked || checkpointActive) return;
     remainingMs = Math.max(0, deadline - now);
     updateTimerVisual(remainingMs);
 
@@ -165,11 +235,11 @@
     timerEl.textContent = seconds;
     const ratio = Math.max(0, Math.min(1, ms / QUESTION_MS));
     timerRing.style.strokeDashoffset = String(CIRC * (1 - ratio));
-    timerRing.style.stroke = seconds <= 2 ? "var(--red)" : seconds <= 4 ? "var(--orange)" : "var(--peacock-soft)";
+    timerRing.style.stroke = seconds <= 2 ? "var(--red)" : seconds <= 4 ? "var(--saffron)" : "var(--peacock-soft)";
   }
 
   function chooseAnswer(choice){
-    if(locked || paused || !active) return;
+    if(locked || paused || !active || checkpointActive) return;
     locked = true;
     cancelAnimationFrame(frame);
 
@@ -198,7 +268,8 @@
       feedback.innerHTML = '<strong>Not this one</strong><span>Fast is good. Accurate is better.</span>';
     }
 
-    setTimeout(nextQuestion, 1350);
+    renderRankPanel(index+1);
+    setTimeout(proceedAfterQuestion, 1250);
   }
 
   function timeUp(){
@@ -216,23 +287,72 @@
       else btn.classList.add("dim");
     });
     feedback.innerHTML = '<strong>Time!</strong><span>7 seconds are up.</span>';
-    setTimeout(nextQuestion, 1350);
+    renderRankPanel(index+1);
+    setTimeout(proceedAfterQuestion, 1250);
   }
 
-  function nextQuestion(){
+  function proceedAfterQuestion(){
     if(!active) return;
+    const completed = index + 1;
+    if(completed % 5 === 0){
+      showCheckpoint(completed);
+      return;
+    }
     index++;
-    if(index >= QUESTIONS.length){
+    showQuestion();
+  }
+
+  function showCheckpoint(completed){
+    checkpointActive = true;
+    checkpointCompleted = completed;
+    checkpointRemainingMs = CHECKPOINT_MS;
+    renderCheckpoint(completed);
+    leaderboardBreak.hidden = false;
+    startCheckpointClock();
+  }
+
+  function startCheckpointClock(){
+    cancelAnimationFrame(checkpointFrame);
+    checkpointDeadline = performance.now() + checkpointRemainingMs;
+    checkpointFrame = requestAnimationFrame(checkpointTick);
+  }
+
+  function checkpointTick(now){
+    if(!checkpointActive || paused) return;
+    checkpointRemainingMs = Math.max(0,checkpointDeadline-now);
+    const seconds = Math.max(1,Math.ceil(checkpointRemainingMs/1000));
+    breakNext.textContent = checkpointCompleted >= QUESTIONS.length ?
+      "Final results in "+seconds+"..." :
+      "Next question in "+seconds+"...";
+
+    if(checkpointRemainingMs <= 0){
+      endCheckpoint();
+      return;
+    }
+    checkpointFrame = requestAnimationFrame(checkpointTick);
+  }
+
+  function endCheckpoint(){
+    cancelAnimationFrame(checkpointFrame);
+    leaderboardBreak.hidden = true;
+    checkpointActive = false;
+
+    if(checkpointCompleted >= QUESTIONS.length){
       finishQuiz();
       return;
     }
+
+    index++;
     showQuestion();
   }
 
   function finishQuiz(){
     active = false;
     finished = true;
+    checkpointActive = false;
     cancelAnimationFrame(frame);
+    cancelAnimationFrame(checkpointFrame);
+    leaderboardBreak.hidden = true;
     quizScreen.hidden = true;
     resultScreen.hidden = false;
 
@@ -248,8 +368,15 @@
   function pauseForFullscreen(){
     if(!active || finished || paused) return;
     paused = true;
-    remainingMs = Math.max(0, deadline - performance.now());
-    cancelAnimationFrame(frame);
+
+    if(checkpointActive){
+      checkpointRemainingMs = Math.max(0,checkpointDeadline-performance.now());
+      cancelAnimationFrame(checkpointFrame);
+    }else{
+      remainingMs = Math.max(0,deadline-performance.now());
+      cancelAnimationFrame(frame);
+    }
+
     fullscreenGuard.hidden = false;
   }
 
@@ -257,8 +384,13 @@
     if(!active || finished) return;
     fullscreenGuard.hidden = true;
     paused = false;
-    deadline = performance.now() + remainingMs;
-    frame = requestAnimationFrame(tick);
+
+    if(checkpointActive){
+      startCheckpointClock();
+    }else{
+      deadline = performance.now() + remainingMs;
+      frame = requestAnimationFrame(tick);
+    }
   }
 
   resumeFullscreen.addEventListener("click", async function(){
