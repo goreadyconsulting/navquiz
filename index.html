@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
-  <meta name="theme-color" content="#070b11">
+  <meta name="theme-color" content="#0f8b8d">
   <title>GOSH Navratri Quiz</title>
   <meta name="description" content="GOSH Navratri Quiz - 25 Bollywood and Navratri culture questions. Fastest fingers first.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,6 +15,8 @@
   <main id="app">
     <section id="startScreen" class="screen start-screen">
       <div class="festive-dots" aria-hidden="true"></div>
+      <div class="rangoli rangoli-one" aria-hidden="true"></div>
+      <div class="rangoli rangoli-two" aria-hidden="true"></div>
       <div class="start-card">
         <img class="gosh-logo" src="./assets/gosh-logo.webp" alt="GOSH - GUS on Staff Happiness">
         <p class="kicker">BOLLYWOOD • GARBA • DANDIYA • POP CULTURE</p>
@@ -47,22 +49,55 @@
       <div class="progress-track"><i id="progressBar"></i></div>
 
       <div class="quiz-main">
-        <div class="timer-score-row">
-          <div class="timer-wrap" aria-label="Question timer">
-            <svg viewBox="0 0 120 120" aria-hidden="true">
-              <circle class="timer-bg" cx="60" cy="60" r="52"></circle>
-              <circle id="timerRing" class="timer-ring" cx="60" cy="60" r="52"></circle>
-            </svg>
-            <div><strong id="timer">7</strong><span>SECONDS</span></div>
+        <div class="quiz-core">
+          <div class="timer-score-row">
+            <div class="timer-wrap" aria-label="Question timer">
+              <svg viewBox="0 0 120 120" aria-hidden="true">
+                <circle class="timer-bg" cx="60" cy="60" r="52"></circle>
+                <circle id="timerRing" class="timer-ring" cx="60" cy="60" r="52"></circle>
+              </svg>
+              <div><strong id="timer">7</strong><span>SECONDS</span></div>
+            </div>
+            <div class="score-box score-beside-timer"><span>SCORE</span><strong id="score">0</strong></div>
           </div>
-          <div class="score-box score-beside-timer"><span>SCORE</span><strong id="score">0</strong></div>
+
+          <div class="question-wrap">
+            <p id="category" class="category">BOLLYWOOD</p>
+            <h2 id="questionText"></h2>
+            <div id="answers" class="answers"></div>
+            <div id="feedback" class="feedback" aria-live="polite"></div>
+          </div>
         </div>
 
-        <div class="question-wrap">
-          <p id="category" class="category">BOLLYWOOD</p>
-          <h2 id="questionText"></h2>
-          <div id="answers" class="answers"></div>
-          <div id="feedback" class="feedback" aria-live="polite"></div>
+        <aside class="rank-panel" aria-label="Current leaderboard">
+          <div class="rank-panel-top">
+            <div>
+              <span>CURRENT RANK</span>
+              <strong id="currentRank">#—</strong>
+            </div>
+            <div class="rank-score">
+              <span>YOUR SCORE</span>
+              <strong id="rankScore">0</strong>
+            </div>
+          </div>
+          <div class="rank-divider"></div>
+          <p class="top-three-title">TOP 3</p>
+          <div id="topThreeCompact" class="top-three-compact"></div>
+          <p class="rank-note">Leaderboard checkpoint every 5 questions</p>
+        </aside>
+      </div>
+
+      <div id="leaderboardBreak" class="leaderboard-break" hidden>
+        <div class="leaderboard-break-card">
+          <p id="checkpointLabel" class="break-kicker">CHECKPOINT</p>
+          <h2>Leaderboard</h2>
+          <div class="your-rank-large">
+            <span>YOUR CURRENT RANK</span>
+            <strong id="breakRank">#—</strong>
+            <small id="breakScore">0 points</small>
+          </div>
+          <div id="breakTopThree" class="break-top-three"></div>
+          <p id="breakNext" class="break-next">Next question in 4...</p>
         </div>
       </div>
 
