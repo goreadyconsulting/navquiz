@@ -111,20 +111,16 @@ h1{
 .timer-wrap>div{text-align:center}.timer-wrap strong{display:block;font-size:42px;line-height:1;color:var(--ink)}.timer-wrap span{font-size:7px;letter-spacing:.14em;color:#8a778d}
 .question-wrap{width:min(1000px,100%);text-align:center;margin:0 auto}
 .category{font-size:10px;font-weight:900;letter-spacing:.19em;color:var(--peacock);margin:2px 0 14px;text-transform:uppercase}
-.question-wrap h2{font-size:clamp(40px,4.8vw,68px);line-height:1.04;letter-spacing:-.045em;margin:0 auto 30px;max-width:1020px;text-align:center;text-wrap:balance;color:var(--ink)}
+.question-wrap h2{font-size:clamp(48px,5.6vw,80px);line-height:1.02;letter-spacing:-.05em;margin:0 auto 34px;max-width:1080px;text-align:center;text-wrap:balance;color:var(--ink);font-weight:800}
 .answers{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:900px;margin:0 auto}
 .answer{
-  min-height:80px;border:1px solid rgba(82,49,89,.10);border-radius:18px;padding:14px 18px;background:rgba(255,255,255,.90);
-  color:var(--ink);display:grid;grid-template-columns:38px 1fr;gap:13px;align-items:center;text-align:left;
+  min-height:88px;border:1px solid rgba(82,49,89,.14);border-radius:18px;padding:16px 20px;background:rgba(255,255,255,.94);
+  color:var(--ink);display:grid;grid-template-columns:42px 1fr;gap:15px;align-items:center;text-align:left;
   transition:.16s;position:relative;overflow:hidden;box-shadow:0 10px 28px rgba(92,55,79,.07)
 }
-.answer:nth-child(1){border-left:5px solid var(--yellow);background:linear-gradient(90deg,#fffdf0,#fff)}
-.answer:nth-child(2){border-left:5px solid var(--peacock-soft);background:linear-gradient(90deg,#eefcf9,#fff)}
-.answer:nth-child(3){border-left:5px solid var(--pink);background:linear-gradient(90deg,#fff1f7,#fff)}
-.answer:nth-child(4){border-left:5px solid var(--purple);background:linear-gradient(90deg,#f5f0ff,#fff)}
-.answer:hover:not(:disabled){transform:translateY(-2px) scale(1.01);border-color:rgba(82,49,89,.18);box-shadow:0 16px 34px rgba(92,55,79,.12)}
-.answer b{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#fff;color:var(--ink);font-size:12px;border:1px solid rgba(82,49,89,.14)}
-.answer span{font-size:15px;font-weight:700}.answer:disabled{cursor:default}
+.answer:hover:not(:disabled){transform:translateY(-2px) scale(1.005);border-color:rgba(82,49,89,.28);background:#fff;box-shadow:0 16px 34px rgba(92,55,79,.12)}
+.answer b{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:#fff;color:var(--ink);font-size:13px;border:1px solid rgba(82,49,89,.18)}
+.answer span{font-size:18px;font-weight:700}.answer:disabled{cursor:default}
 .answer.correct{border-color:rgba(47,185,119,.6);background:linear-gradient(135deg,#ddf8e9,#ebfff8)}.answer.correct b{border-color:var(--green);color:white;background:var(--green)}
 .answer.wrong{border-color:rgba(239,83,98,.55);background:linear-gradient(135deg,#ffe4e8,#fff0f4)}.answer.wrong b{border-color:var(--red);color:white;background:var(--red)}
 .answer.dim{opacity:.38}
@@ -196,7 +192,7 @@ h1{
 @media(max-width:1120px){
   .quiz-main{grid-template-columns:minmax(0,1fr) 220px;gap:18px}
   .rank-panel{padding:16px 14px}
-  .question-wrap h2{font-size:clamp(38px,4.6vw,58px)}
+  .question-wrap h2{font-size:clamp(44px,5.2vw,68px)}
 }
 @media(max-width:900px){
   .quiz-main{grid-template-columns:1fr;padding:18px 18px 24px}
@@ -210,8 +206,8 @@ h1{
   .quiz-header{grid-template-columns:1fr auto;gap:14px;padding:0 16px}.quiz-header img{width:115px}.question-count{display:none}
   .quiz-main{padding:16px 14px 24px;align-items:start}
   .timer-row{margin:0 auto 6px}.timer-wrap{width:82px;height:82px}.timer-wrap strong{font-size:27px}.timer-wrap span{font-size:6px}
-  .category{margin-top:2px}.question-wrap h2{font-size:clamp(32px,8vw,45px);margin-bottom:22px}
-  .answers{grid-template-columns:1fr;gap:9px;max-width:620px}.answer{min-height:62px}
+  .category{margin-top:2px}.question-wrap h2{font-size:clamp(38px,9vw,52px);margin-bottom:24px}
+  .answers{grid-template-columns:1fr;gap:9px;max-width:620px}.answer{min-height:68px;padding:14px 16px}.answer span{font-size:17px}
   .quiz-footer{font-size:7px}.result-stats{grid-template-columns:1fr}
   .leaderboard-break{inset:78px 0 52px;padding:16px}.leaderboard-break-card{padding:26px 18px}.your-rank-large strong{font-size:45px}
 }
