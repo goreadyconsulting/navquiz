@@ -139,7 +139,7 @@
     const blob=new Blob([csv],{type:"text/csv"});
     const url=URL.createObjectURL(blob);
     const a=document.createElement("a");
-    a.href=url;a.download="gosh-navratri-quiz-results.csv";a.click();
+    a.href=url;a.download="navratri-trivia-results.csv";a.click();
     URL.revokeObjectURL(url);
     toast("CSV exported.");
   });
