@@ -1,6 +1,6 @@
-# GOSH Navratri Quiz
+# Navratri Trivia
 
-This repository is the approved visual and interaction reference for the GOSH Navratri Quiz.
+This repository is the approved visual and interaction reference for the Navratri Trivia.
 
 The current repository contains a working frontend prototype for the participant quiz and a working frontend prototype for the admin portal. It deliberately has no production backend, no database, no admin authentication and no external platform dependency.
 
@@ -8,7 +8,7 @@ The IT team should use the existing screens as the required UX and build the pro
 
 ## 1. What we are building
 
-GOSH Navratri Quiz is a fast, office-appropriate Bollywood and Indian Navratri culture quiz.
+Navratri Trivia is a fast, office-appropriate Bollywood and Indian Navratri culture quiz.
 
 The quiz should feel colorful, vibrant, simple and fast.
 
@@ -99,7 +99,7 @@ The production build must not trust browser-side score, answer correctness, timi
 
 ### Step 1: Entry
 
-Show the existing GOSH Navratri Quiz entry screen.
+Show the existing Navratri Trivia entry screen.
 
 User enters a valid email address and selects Start Quiz.
 
