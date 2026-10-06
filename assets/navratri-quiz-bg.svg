@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<defs>
+  <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#087f7d"/>
+    <stop offset=".34" stop-color="#0aa89e"/>
+    <stop offset=".66" stop-color="#f15b9e"/>
+    <stop offset="1" stop-color="#ff8a2a"/>
+  </linearGradient>
+  <radialGradient id="glow" cx="50%" cy="45%" r="62%">
+    <stop offset="0" stop-color="#fff3b0" stop-opacity=".95"/>
+    <stop offset=".38" stop-color="#ffd84a" stop-opacity=".34"/>
+    <stop offset="1" stop-color="#5c268a" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="drapeL" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#9a1976"/><stop offset=".55" stop-color="#f15b9e"/><stop offset="1" stop-color="#ff8a2a"/>
+  </linearGradient>
+  <linearGradient id="drapeR" x1="1" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#6b39ba"/><stop offset=".55" stop-color="#c92f8c"/><stop offset="1" stop-color="#ff8a2a"/>
+  </linearGradient>
+  <filter id="soft"><feGaussianBlur stdDeviation="18"/></filter>
+  <filter id="smallGlow"><feGaussianBlur stdDeviation="5"/></filter>
+  <pattern id="dots" width="58" height="58" patternUnits="userSpaceOnUse">
+    <circle cx="7" cy="8" r="2.5" fill="#ffd84a" opacity=".42"/>
+    <circle cx="35" cy="31" r="1.7" fill="#fff" opacity=".38"/>
+    <circle cx="52" cy="15" r="2" fill="#f15b9e" opacity=".28"/>
+  </pattern>
+</defs>
+
+<rect width="1600" height="900" fill="url(#sky)"/>
+<rect width="1600" height="900" fill="url(#glow)"/>
+<rect width="1600" height="900" fill="url(#dots)" opacity=".34"/>
+
+<!-- soft central readability zone -->
+<ellipse cx="800" cy="435" rx="520" ry="330" fill="#fff8de" opacity=".24" filter="url(#soft)"/>
+
+<!-- top drapery -->
+<path d="M0 0H530C425 35 335 88 260 150C180 118 95 82 0 70Z" fill="url(#drapeL)" opacity=".97"/>
+<path d="M1600 0H1070C1175 35 1265 88 1340 150C1420 118 1505 82 1600 70Z" fill="url(#drapeR)" opacity=".97"/>
+<path d="M0 48C185 118 350 104 530 16" fill="none" stroke="#ffd84a" stroke-width="6" opacity=".82"/>
+<path d="M1600 48C1415 118 1250 104 1070 16" fill="none" stroke="#ffd84a" stroke-width="6" opacity=".82"/>
+
+<!-- hanging lights -->
+<path d="M160 72 Q800 175 1440 72" fill="none" stroke="#ffe89a" stroke-width="3" opacity=".7"/>
+<g fill="#fff3a3">
+  <circle cx="205" cy="84" r="7"/><circle cx="315" cy="103" r="7"/><circle cx="430" cy="121" r="7"/>
+  <circle cx="550" cy="139" r="7"/><circle cx="675" cy="150" r="7"/><circle cx="800" cy="154" r="7"/>
+  <circle cx="925" cy="150" r="7"/><circle cx="1050" cy="139" r="7"/><circle cx="1170" cy="121" r="7"/>
+  <circle cx="1285" cy="103" r="7"/><circle cx="1395" cy="84" r="7"/>
+</g>
+<g fill="#ffd84a" opacity=".7" filter="url(#smallGlow)">
+  <circle cx="205" cy="84" r="14"/><circle cx="430" cy="121" r="14"/><circle cx="675" cy="150" r="14"/>
+  <circle cx="925" cy="150" r="14"/><circle cx="1170" cy="121" r="14"/><circle cx="1395" cy="84" r="14"/>
+</g>
+
+<!-- marigold garlands -->
+<g fill="#ffb21a">
+  <circle cx="55" cy="105" r="13"/><circle cx="55" cy="137" r="12"/><circle cx="55" cy="169" r="13"/><circle cx="55" cy="201" r="12"/>
+  <circle cx="1545" cy="105" r="13"/><circle cx="1545" cy="137" r="12"/><circle cx="1545" cy="169" r="13"/><circle cx="1545" cy="201" r="12"/>
+</g>
+
+<!-- hanging bells -->
+<g fill="#f9b934" stroke="#7d4b16" stroke-width="3">
+  <path d="M335 80v37h-17l10 20h14l10-20h-17V80z"/><circle cx="335" cy="140" r="6"/>
+  <path d="M1265 80v37h-17l10 20h14l10-20h-17V80z"/><circle cx="1265" cy="140" r="6"/>
+  <path d="M800 100v38h-17l10 20h14l10-20h-17v-38z"/><circle cx="800" cy="160" r="6"/>
+</g>
+
+<!-- abstract mandala watermark -->
+<g transform="translate(800 420)" fill="none" stroke="#fff3c0" opacity=".28">
+  <circle r="175" stroke-width="3"/>
+  <circle r="128" stroke-width="2"/>
+  <g stroke-width="4">
+    <ellipse rx="42" ry="175" transform="rotate(0)"/><ellipse rx="42" ry="175" transform="rotate(30)"/>
+    <ellipse rx="42" ry="175" transform="rotate(60)"/><ellipse rx="42" ry="175" transform="rotate(90)"/>
+    <ellipse rx="42" ry="175" transform="rotate(120)"/><ellipse rx="42" ry="175" transform="rotate(150)"/>
+  </g>
+</g>
+
+<!-- festive floor/rangoli -->
+<ellipse cx="800" cy="845" rx="520" ry="125" fill="#51205f" opacity=".36"/>
+<g transform="translate(800 820)">
+  <circle r="190" fill="#f15b9e" opacity=".86"/>
+  <circle r="160" fill="#087f7d"/>
+  <circle r="126" fill="#ffd84a"/>
+  <circle r="94" fill="#8c4bd4"/>
+  <circle r="58" fill="#ff8a2a"/>
+  <g fill="#fff2bc" opacity=".9">
+    <ellipse rx="24" ry="130" transform="rotate(0)"/><ellipse rx="24" ry="130" transform="rotate(30)"/>
+    <ellipse rx="24" ry="130" transform="rotate(60)"/><ellipse rx="24" ry="130" transform="rotate(90)"/>
+    <ellipse rx="24" ry="130" transform="rotate(120)"/><ellipse rx="24" ry="130" transform="rotate(150)"/>
+  </g>
+  <circle r="44" fill="#087f7d"/><circle r="22" fill="#ffd84a"/>
+</g>
+
+<!-- left dancer silhouette -->
+<g transform="translate(150 445)" fill="#4d174f" opacity=".84">
+  <circle cx="90" cy="25" r="27"/>
+  <path d="M74 48c-25 44-34 91-29 137c-44 38-69 83-79 140h210c-15-61-43-105-88-139c7-47 3-94-14-138z"/>
+  <path d="M73 75L12 28l-18 18l65 67z"/>
+  <path d="M93 73l72-68l18 18l-70 86z"/>
+  <rect x="-16" y="-8" width="92" height="9" rx="5" transform="rotate(-25)" fill="#ffd84a"/>
+  <rect x="139" y="-19" width="96" height="9" rx="5" transform="rotate(28 139 -19)" fill="#24cbbd"/>
+</g>
+
+<!-- right dancer silhouette -->
+<g transform="translate(1270 445)" fill="#143f54" opacity=".86">
+  <circle cx="86" cy="24" r="27"/>
+  <path d="M70 48c-22 42-28 87-21 132c-50 35-82 84-92 145h223c-13-63-48-111-92-143c9-46 6-91-18-134z"/>
+  <path d="M71 76L6 6l-19 17l64 88z"/>
+  <path d="M93 72l67-61l18 19l-66 79z"/>
+  <rect x="-18" y="-15" width="102" height="9" rx="5" transform="rotate(-32)" fill="#f15b9e"/>
+  <rect x="137" y="-8" width="95" height="9" rx="5" transform="rotate(31 137 -8)" fill="#ffd84a"/>
+</g>
+
+<!-- distant dance crowd -->
+<g fill="#5d245d" opacity=".32">
+  <circle cx="360" cy="575" r="17"/><path d="M350 594l-30 105h78l-30-105z"/><path d="M353 610l-44-42l-12 12l47 55z"/>
+  <circle cx="455" cy="560" r="16"/><path d="M447 578l-34 108h82l-31-108z"/><path d="M456 598l45-51l12 13l-43 57z"/>
+  <circle cx="1145" cy="560" r="16"/><path d="M1137 578l-31 108h82l-34-108z"/><path d="M1144 598l-45-51l-12 13l43 57z"/>
+  <circle cx="1240" cy="575" r="17"/><path d="M1232 594l-30 105h78l-30-105z"/><path d="M1238 610l44-42l12 12l-47 55z"/>
+</g>
+
+<!-- diya clusters -->
+<g>
+  <g transform="translate(80 742)">
+    <ellipse cx="0" cy="48" rx="72" ry="22" fill="#8b3b18"/><path d="M-68 44Q0 88 68 44Q44 104 0 105Q-44 104-68 44Z" fill="#f39b22"/>
+    <path d="M0 43c-14-22 2-37 0-54c23 22 22 41 0 54z" fill="#fff2a0"/>
+  </g>
+  <g transform="translate(1520 742)">
+    <ellipse cx="0" cy="48" rx="72" ry="22" fill="#8b3b18"/><path d="M-68 44Q0 88 68 44Q44 104 0 105Q-44 104-68 44Z" fill="#f39b22"/>
+    <path d="M0 43c-14-22 2-37 0-54c23 22 22 41 0 54z" fill="#fff2a0"/>
+  </g>
+</g>
+
+<!-- petals -->
+<g fill="#f15b9e" opacity=".72">
+  <ellipse cx="270" cy="780" rx="12" ry="5" transform="rotate(18 270 780)"/>
+  <ellipse cx="345" cy="825" rx="11" ry="5" transform="rotate(-24 345 825)"/>
+  <ellipse cx="1260" cy="798" rx="12" ry="5" transform="rotate(28 1260 798)"/>
+  <ellipse cx="1370" cy="840" rx="11" ry="5" transform="rotate(-18 1370 840)"/>
+  <ellipse cx="660" cy="745" rx="10" ry="4" transform="rotate(35 660 745)"/>
+  <ellipse cx="950" cy="755" rx="10" ry="4" transform="rotate(-35 950 755)"/>
+</g>
+</svg>
