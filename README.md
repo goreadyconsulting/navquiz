@@ -53,7 +53,7 @@ Production admin must be protected by authenticated staff access. There should b
     │   └── index.html
     └── assets/
         ├── gosh-logo.webp
-        ├── navratri-quiz-bg.jpg
+        ├── navratri-quiz-bg.svg
         ├── quiz.css
         ├── quiz.js
         ├── admin.css
@@ -64,7 +64,7 @@ Every file currently in the repository is required.
 File responsibilities:
 
 - index.html: participant entry, quiz, result and fullscreen-required screens.
-- assets/navratri-quiz-bg.jpg: generated festive Garba/Navratri background used across the participant entry, quiz, leaderboard checkpoint and results screens.
+- assets/navratri-quiz-bg.svg: festive Garba/Navratri background artwork used across the participant entry, quiz, leaderboard checkpoint and results screens.
 - assets/quiz.css: participant visual design and responsive layout.
 - assets/quiz.js: current frontend-only question bank, timer, scoring prototype and fullscreen behavior.
 - admin/index.html: admin portal layout.
