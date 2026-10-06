@@ -50,7 +50,7 @@
 
       <div class="quiz-main">
         <div class="quiz-core">
-          <div class="timer-score-row">
+          <div class="timer-row">
             <div class="timer-wrap" aria-label="Question timer">
               <svg viewBox="0 0 120 120" aria-hidden="true">
                 <circle class="timer-bg" cx="60" cy="60" r="52"></circle>
@@ -58,7 +58,6 @@
               </svg>
               <div><strong id="timer">7</strong><span>SECONDS</span></div>
             </div>
-            <div class="score-box score-beside-timer"><span>SCORE</span><strong id="score">0</strong></div>
           </div>
 
           <div class="question-wrap">
@@ -75,14 +74,14 @@
               <span>CURRENT RANK</span>
               <strong id="currentRank">#—</strong>
             </div>
-            <div class="rank-score">
-              <span>YOUR SCORE</span>
-              <strong id="rankScore">0</strong>
-            </div>
           </div>
           <div class="rank-divider"></div>
           <p class="top-three-title">TOP 3</p>
           <div id="topThreeCompact" class="top-three-compact"></div>
+          <div class="leaderboard-score-card">
+            <span>YOUR SCORE</span>
+            <strong id="score">0</strong>
+          </div>
           <p class="rank-note">Leaderboard checkpoint every 5 questions</p>
         </aside>
       </div>
