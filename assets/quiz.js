@@ -58,7 +58,6 @@
   const fullscreenGuard = document.getElementById("fullscreenGuard");
   const resumeFullscreen = document.getElementById("resumeFullscreen");
   const currentRankEl = document.getElementById("currentRank");
-  const rankScoreEl = document.getElementById("rankScore");
   const topThreeCompact = document.getElementById("topThreeCompact");
   const leaderboardBreak = document.getElementById("leaderboardBreak");
   const checkpointLabel = document.getElementById("checkpointLabel");
@@ -117,7 +116,6 @@
   function renderRankPanel(completed){
     const data = leaderboardData(completed);
     currentRankEl.textContent = completed ? "#"+data.rank : "#—";
-    rankScoreEl.textContent = score.toLocaleString("en-IN");
     topThreeCompact.innerHTML = data.top3.map(function(p,i){
       return '<div class="compact-rank-row">'+
         '<span>#'+(i+1)+'</span>'+
