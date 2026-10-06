@@ -29,7 +29,7 @@ button{cursor:pointer}
   display:grid;place-items:center;padding:28px;overflow:hidden;
   background-image:
     linear-gradient(135deg,rgba(255,247,224,.62),rgba(255,232,244,.56),rgba(225,250,244,.58)),
-    url("./navratri-quiz-bg.jpg");
+    url("./navratri-quiz-bg.svg");
   background-size:cover;
   background-position:center;
   background-repeat:no-repeat
@@ -81,7 +81,7 @@ h1{
   display:flex;flex-direction:column;overflow:hidden;
   background-image:
     linear-gradient(135deg,rgba(255,248,230,.70),rgba(255,238,246,.66),rgba(232,250,246,.68)),
-    url("./navratri-quiz-bg.jpg");
+    url("./navratri-quiz-bg.svg");
   background-size:cover;
   background-position:center;
   background-repeat:no-repeat
@@ -155,7 +155,7 @@ h1{
   position:absolute;z-index:50;inset:78px 0 52px;display:grid;place-items:center;padding:28px;
   background-image:
     linear-gradient(135deg,rgba(255,235,177,.62),rgba(255,226,243,.58),rgba(215,247,239,.62)),
-    url("./navratri-quiz-bg.jpg");
+    url("./navratri-quiz-bg.svg");
   background-size:cover;
   background-position:center;
   background-repeat:no-repeat;
@@ -178,7 +178,7 @@ h1{
   display:grid;place-items:center;padding:28px;
   background-image:
     linear-gradient(135deg,rgba(255,246,221,.62),rgba(255,230,242,.58),rgba(225,250,244,.62)),
-    url("./navratri-quiz-bg.jpg");
+    url("./navratri-quiz-bg.svg");
   background-size:cover;
   background-position:center;
   background-repeat:no-repeat
