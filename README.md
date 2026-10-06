@@ -128,6 +128,10 @@ Requirements:
 - Then advance automatically to the next question.
 - Progress indicator shows the current question out of 25.
 - Score remains visible beside the timer.
+- A compact live leaderboard sits on the right on desktop, showing the participant's current rank and the current top three.
+- After questions 5, 10, 15, 20 and 25, pause the quiz and show a leaderboard checkpoint before continuing.
+- The checkpoint must show the participant's current rank, current score and official top three.
+- On mobile, the persistent side leaderboard may collapse to protect question space, but the five-question checkpoint must still appear.
 - Layout remains centered and responsive.
 - Fullscreen state is monitored.
 
@@ -347,6 +351,15 @@ Display:
 
 Leaderboard must use server-stored official scores only.
 
+Participant leaderboard requirements:
+
+- During active questions on desktop, show a compact right-side rank panel with current rank, current score and top three.
+- Recalculate/refresh ranking after each submitted answer or timeout.
+- Show a dedicated checkpoint leaderboard after every five completed questions: 5, 10, 15, 20 and 25.
+- Pause question timing while the checkpoint is visible.
+- After the question-25 checkpoint, continue to the participant's final result screen.
+- Do not calculate official rank from mock/browser-only competitor data in production.
+
 ### Participants
 
 Searchable participant table should include:
@@ -533,6 +546,8 @@ Keep:
 - Speed-weighted scoring behavior.
 - Fullscreen-required flow.
 - Current admin visual structure.
+- Bright, colorful Navratri participant palette using peacock green, saffron, yellow, pink and purple rather than a dark blue quiz theme.
+- Right-side participant rank panel and five-question leaderboard checkpoint flow.
 
 Replace:
 
@@ -540,6 +555,7 @@ Replace:
 - Browser-side official scoring.
 - Publicly visible correct-answer source.
 - Mock admin data.
+- Mock participant leaderboard data used only to demonstrate the side rank panel and five-question checkpoints.
 - Local-only quiz state.
 
 With:
